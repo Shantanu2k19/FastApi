@@ -14,3 +14,10 @@ POST create something new
 PUT update a data 
 DELETE delete a data 
 """
+
+
+---------------------------------------------
+other commands 
+
+git config user.name
+git config user.email
