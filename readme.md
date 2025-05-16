@@ -21,3 +21,8 @@ other commands
 
 git config user.name
 git config user.email
+
+git clone git@githb-per:Shantanu2k19/FastApi.git
+
+git config user.name "Shantanu2k19"
+git config user.email "shan@gmail.com"
