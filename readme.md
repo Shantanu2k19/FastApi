@@ -19,6 +19,8 @@ DELETE delete a data
 ---------------------------------------------
 other commands 
 
+git remote -v
+
 git config user.name
 git config user.email
 
