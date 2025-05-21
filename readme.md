@@ -5,6 +5,8 @@ pip install fastapi uvicorn
 
 #runserver
 uvicorn myapi:app --reload #--port 9000
+# myapi:file name, app: FastAPI instance (app=FastAPI()), --reload: auto reload server on code changes 
+#In production, it’s common to use both,Gunicorn for process management, and Uvicorn as the async worker.
 
 #postman of fastApi 
 http://127.0.0.1:9000/docs

@@ -5,12 +5,24 @@
 
 ### 🚀 Getting Started
 - Setting up FastAPI with `uvicorn`
-- Understanding ASGI vs WSGI
+    - ASGI server that runs FastAPI (or other ASGI-compatible) applications.
+    - receives http request, process them asynchronously, calls fastapi app, returns response 
+- Understanding ASGI vs WSGI 
+        
+    | Feature            | **WSGI** (Web Server Gateway Interface)                  | **ASGI** (Asynchronous Server Gateway Interface)     |
+    | ------------------ | -------------------------------------------------------- | ---------------------------------------------------- |
+    | Introduced For     | Synchronous Python web apps                              | Asynchronous **and** synchronous Python web apps     |
+    | Core Limitation    | No support for async IO (e.g., WebSockets, long polling) | Built for async-first apps                           |
+    | Example Frameworks | Django, Flask, Pyramid                                   | **FastAPI**, Starlette, Django 3.0+ (with `asgiref`) |
+    | Concurrency        | Limited to threading/processes                           | Supports **async/await**, event loops                |
+    | Real-Time Support  | ❌ No native support for WebSockets                       | ✅ WebSockets, HTTP2, Server-Sent Events              |
+    | Performance        | Good                                                     | **Better** under async I/O workloads                 |
+    | Servers            | Gunicorn (sync)                                          | **Uvicorn**, Daphne, Hypercorn (async)               |
 
 ### 🧩 Routing
-- Path parameters
-- Query parameters
-- Request bodies
+- Path parameters - passed inside url, Automatically type-validated by FastAPI using pydantic 
+- Query parameters - Parameters passed after the ? in the URL, ex-/search/?name=shan&age=25
+- Request bodies - Data sent as JSON payload in the body of request. Used to send structured data.
 - Route grouping with `APIRouter`
 
 ### 🛡️ Pydantic
