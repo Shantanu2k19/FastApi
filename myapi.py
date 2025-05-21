@@ -118,3 +118,23 @@ def delete_student(student_id: int):
     
     del students_dict[student_id]
     return {"messgae":"delete success"}
+
+
+# ------------------
+#Route Grouping with APIRouter
+# ------------------
+
+#way to organise apps into modular routes 
+
+from fastapi import APIRouter
+student_router = APIRouter()
+
+@student_router.get("/get/{student_id}")
+def get_student(student_id: int):
+    return {"id":student_id}
+
+@student_router.post("/create/")
+def create_student(data:dict):
+    return data 
+
+app.include_router(student_router, prefix="/grouped_route_students")
