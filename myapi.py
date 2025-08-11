@@ -37,8 +37,11 @@ def get_student(student_id:int = Path(None, description='The ID of student you w
 #querry parameters 
 # ------------------
 @app.get('/get-by-name')
-def get_student(*, name:Optional[str] = None,  test:int): #parameter may be a string or may be None
-    #* means: All parameters after the * must be passed as keyword arguments (not positional).
+def get_student(*, name:Optional[str] = None,  test:int): 
+    #can also write def get_student(name:str = None):  #name is no longer compulsary 
+    #python doesnt allow optional argument before required argument, to solve it we can rearange args or just add * in start 
+    #parameter may be a string or may be None
+    # * means: All parameters after the * must be passed as keyword arguments (not positional).
     #so even if we have non-default argument following default argument, it works and python doesnt show error (because Keyword-Only Parameters Don't Follow That Rule)
     for x,y in students_dict.items():
         if y['name']==name:
@@ -96,12 +99,13 @@ def update_student(student_id: int, student: Student2):
 
     temp_dict = students_dict[student_id]
 
-    if student.name != None:
-        temp_dict.name = student.name
-    if student.age != None:
-        temp_dict.age = student.age
-    if student.year != None:
-        temp_dict.year = student.year
+    if student.name is not None:
+        temp_dict["name"] = student.name
+    if student.age is not None:
+        temp_dict["age"] = student.age
+    if student.year is not None:
+        temp_dict["year"] = student.year
+
 
     students_dict[student_id] = temp_dict
     return temp_dict

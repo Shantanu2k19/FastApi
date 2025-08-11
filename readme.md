@@ -2,6 +2,7 @@
 
 python3.8 -m venv latest
 pip install fastapi uvicorn
+#Uvicorn is a lightning-fast ASGI server for Python web frameworks
 
 #runserver
 uvicorn myapi:app --reload #--port 9000

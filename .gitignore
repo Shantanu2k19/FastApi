@@ -1,2 +1,4 @@
 /latest
 /__pycache__/
+/myenv
+.vscode
